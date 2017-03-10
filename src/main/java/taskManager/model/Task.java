@@ -17,5 +17,6 @@ public class Task
     int taskId;
     String taskContent;
     TaskType taskType;
+    TaskState taskState;
     LocalDate localDate;
 }
