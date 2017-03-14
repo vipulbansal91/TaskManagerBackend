@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @XmlRootElement
 public class Task
 {
-    int taskId;
+    String taskId;
     String taskContent;
     TaskType taskType;
     TaskState taskState;

@@ -1,4 +1,5 @@
 import taskManager.activity.GetTasks;
+import taskManager.activity.SaveTask;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -14,6 +15,7 @@ public class MyApplication extends Application{
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
         h.add(GetTasks.class);
+        h.add(SaveTask.class);
         return h;
     }
 }
