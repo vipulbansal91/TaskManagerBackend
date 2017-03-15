@@ -1,3 +1,4 @@
+import taskManager.activity.DeleteTask;
 import taskManager.activity.GetTasks;
 import taskManager.activity.SaveTask;
 
@@ -16,6 +17,7 @@ public class MyApplication extends Application{
         HashSet h = new HashSet<Class<?>>();
         h.add(GetTasks.class);
         h.add(SaveTask.class);
+        h.add(DeleteTask.class);
         return h;
     }
 }
