@@ -4,3 +4,4 @@ out/
 web/
 .idea/
 target/
+test.db

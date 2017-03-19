@@ -1,11 +1,14 @@
 package taskManager.dao;
 
+import taskManager.db.Db;
+import taskManager.db.SqlLiteDb;
 import taskManager.model.Task;
 import taskManager.model.TaskState;
 import taskManager.model.TaskType;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,7 +18,12 @@ public class TaskDao
 {
     public List<Task> getTasksForDate(LocalDate date)
     {
-        return  getDummyTasks();
+        Db db = new SqlLiteDb();
+        
+        if (db.setup())
+            return  getDummyTasks();
+        else 
+            return Collections.emptyList();
     }
 
     private List<Task> getDummyTasks()
