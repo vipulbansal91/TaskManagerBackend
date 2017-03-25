@@ -1,5 +1,6 @@
 package taskManager.activity;
 
+import taskManager.dao.TaskDao;
 import taskManager.model.Task;
 
 import javax.ws.rs.*;
@@ -17,9 +18,14 @@ public class SaveTask
     @Produces({MediaType.TEXT_HTML})
     public Response saveTask(Task taskToSave)
     {
-        if (taskToSave.getTaskId() == null)
+        TaskDao taskDao = new TaskDao();
+        
+        if ((taskToSave.getTaskId() == null) || taskToSave.getTaskId().isEmpty())
         {
             //create task
+            taskDao.createTask(taskToSave);
+
+            return Response.status(Response.Status.CREATED).build();
         }
         else
         {

@@ -2,6 +2,7 @@ package taskManager.dao;
 
 import taskManager.db.Db;
 import taskManager.db.SqlLiteDb;
+import taskManager.model.SqlLiteDbTask;
 import taskManager.model.Task;
 import taskManager.model.TaskState;
 import taskManager.model.TaskType;
@@ -24,6 +25,12 @@ public class TaskDao
             return  getDummyTasks();
         else 
             return Collections.emptyList();
+    }
+    
+    public void createTask(Task task)
+    {
+        Db db = new SqlLiteDb();
+        db.insertIntoTasks(new SqlLiteDbTask(task));
     }
 
     private List<Task> getDummyTasks()
