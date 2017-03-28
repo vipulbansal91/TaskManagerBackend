@@ -1,6 +1,7 @@
 import taskManager.activity.DeleteTask;
 import taskManager.activity.GetTasks;
 import taskManager.activity.SaveTask;
+import taskManager.exception.TaskManagerBackendExceptionMapper;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -18,6 +19,7 @@ public class MyApplication extends Application{
         h.add(GetTasks.class);
         h.add(SaveTask.class);
         h.add(DeleteTask.class);
+        h.add(TaskManagerBackendExceptionMapper.class);
         return h;
     }
 }
