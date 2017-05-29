@@ -1,7 +1,6 @@
 TaskManagerBackend.iml
 lib/
 out/
-web/
 .idea/
 target/
 test.db
