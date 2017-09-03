@@ -1,6 +1,6 @@
 package taskManager.activity;
 
-import taskManager.dao.TaskDao;
+import taskManager.dao.SqlLiteTaskDao;
 import taskManager.model.Task;
 
 import javax.ws.rs.*;
@@ -18,12 +18,12 @@ public class SaveTask
     @Produces({MediaType.TEXT_HTML})
     public Response saveTask(Task taskToSave)
     {
-        TaskDao taskDao = new TaskDao();
+        SqlLiteTaskDao sqlLiteTaskDao = new SqlLiteTaskDao();
         
-        if ((taskToSave.getTaskId() == null) || taskToSave.getTaskId().isEmpty())
+        if (taskToSave.getTaskId() == 0)
         {
             //create task
-            taskDao.createTask(taskToSave);
+            sqlLiteTaskDao.createTask(taskToSave);
 
             return Response.status(Response.Status.CREATED).build();
         }

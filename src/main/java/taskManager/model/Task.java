@@ -1,7 +1,9 @@
 package taskManager.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import taskManager.exception.TaskManagerBackendNonRetryableException;
 import taskManager.serDeser.LocalDateAdapter;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -12,9 +14,10 @@ import java.time.LocalDate;
  */
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Task
 {
-    String taskId;
+    int taskId;
     String taskContent;
     TaskType taskType;
     TaskState taskState;
