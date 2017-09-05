@@ -80,6 +80,40 @@ public class SqlLiteTaskDao implements TaskDao
     }
 
     @Override
+    public void deleteTask(int taskId)
+    {
+        try
+        {
+            Connection c = getConnection();
+            this.deleteFromTasks(c, taskId);
+            c.close();
+        }
+        catch (SQLException e)
+        {
+            throw new TaskManagerBackendNonRetryableException(e);
+        }
+
+    }
+    
+    private void deleteFromTasks(Connection c, int id)
+    {
+        Statement stmt;
+        try
+        {
+            stmt = c.createStatement();
+            
+            String sql = "DELETE FROM TASKS " +
+                    "WHERE " + ID_COLUMN_LABEL + "=" + id;
+            stmt.execute(sql);
+            stmt.close();
+        }
+        catch (SQLException e)
+        {
+            throw new TaskManagerBackendNonRetryableException(e);
+        }
+    }
+    
+    @Override
     public void createTask(Task task)
     {
         this.insertIntoTasks(task);

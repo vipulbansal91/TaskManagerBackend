@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface TaskDao
 {
+    void deleteTask(int taskId);
     void createTask(Task task);
     List<Task> getTasksForDate(LocalDate date);
 }
